@@ -12,7 +12,8 @@ my_file = 'Qdata/index.txt'
 my_encoding = find_encoding(my_file)
 
 # opening index file here
-with open(my_file, 'r', encoding=my_encoding) as f:
+# with open(my_file, 'r', encoding=my_encoding) as f:
+with open(my_file, 'r', encoding="utf-8") as f:
     lines = f.readlines()
 
 # preprocess function to take title from index file & break it into terms and return ut
@@ -42,15 +43,15 @@ print('Size of vocab: ', len(vocab))
 print('Sample document: ', documents[0])
 
 # writing keys and values of vocab in different files
-with open('TF-IDF_part/vocab.txt', 'w') as f:
+with open('TF-IDF_part/vocab.txt', 'w',encoding="utf-8") as f:
     for key in vocab.keys():
         f.write("%s\n" % key)
 
-with open('TF-IDF_part/idf-values.txt', 'w') as f:
+with open('TF-IDF_part/idf-values.txt', 'w',encoding="utf-8") as f:
     for key in vocab.keys():
         f.write("%s\n" % vocab[key])
 
-with open('TF-IDF_part/documents.txt', 'w') as f:
+with open('TF-IDF_part/documents.txt', 'w',encoding="utf-8") as f:
     for document in documents:
         f.write("%s\n" % ' '.join(document))
 
@@ -64,7 +65,7 @@ for index, document in enumerate(documents):
         else:
             inverted_index[token].append(index)
 
-with open('TF-IDF_part/inverted-index.txt', 'w') as f:
+with open('TF-IDF_part/inverted-index.txt', 'w',encoding="utf-8") as f:
     for key in inverted_index.keys():
         f.write("%s\n" % key)
         f.write("%s\n" % ' '.join([str(doc_id) for doc_id in inverted_index[key]]))

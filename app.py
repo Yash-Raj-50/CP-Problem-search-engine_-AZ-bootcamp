@@ -7,9 +7,9 @@ import math
 # function to return dictionary of vocan terms & their tf-idf value
 def load_vocab():
     vocab = {}
-    with open('TF-IDF_part/vocab.txt', 'r') as f:
+    with open('TF-IDF_part/vocab.txt', 'r',encoding="utf-8") as f:
         vocab_terms = f.readlines()
-    with open('TF-IDF_part/idf-values.txt', 'r') as f:
+    with open('TF-IDF_part/idf-values.txt', 'r',encoding="utf-8") as f:
         idf_values = f.readlines()
     
     for (term,idf_value) in zip(vocab_terms, idf_values):
@@ -20,7 +20,7 @@ def load_vocab():
 # funtion loads documents & prints their number
 def load_documents():
     documents = []
-    with open('TF-IDF_part/documents.txt', 'r') as f:
+    with open('TF-IDF_part/documents.txt', 'r',encoding="utf-8") as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -31,7 +31,7 @@ def load_documents():
 # function to load inverted index terms & the relevant documents
 def load_inverted_index():
     inverted_index = {}
-    with open('TF-IDF_part/inverted-index.txt', 'r') as f:
+    with open('TF-IDF_part/inverted-index.txt', 'r',encoding="utf-8") as f:
         inverted_index_terms = f.readlines()
 
     # going through  all the terms
@@ -48,7 +48,7 @@ documents = load_documents()
 inverted_index = load_inverted_index()
 
 def load_link_of_qs():
-    with open("Qdata/Qindex.txt", "r") as f:
+    with open("Qdata/Qindex.txt", "r",encoding="utf-8") as f:
         links = f.readlines()
 
     return links
@@ -104,7 +104,7 @@ def calculate_sorted_order_of_documents(query_terms):
         print("No matching question found. Please search with more relevant terms.")
     
     documentNames=[]
-    with open('TF-IDF_part/documents.txt', 'r') as f:
+    with open('TF-IDF_part/documents.txt', 'r',encoding="utf-8") as f:
         documentNames = f.readlines()
         # documents = [document.strip().split() for document in documents]
     

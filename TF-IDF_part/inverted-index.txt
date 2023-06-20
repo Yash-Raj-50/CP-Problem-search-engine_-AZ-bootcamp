@@ -3260,7 +3260,7 @@ monkeys
 1815
 coin
 1821 1906
-×
+?
 1823
 pseudo-palindromic
 1824
